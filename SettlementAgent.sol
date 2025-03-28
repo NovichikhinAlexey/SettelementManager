@@ -55,7 +55,6 @@ contract SettlementAgent is Initializable, AccessControlUpgradeable, UUPSUpgrade
     event TimeLimitsSet(address indexed user, uint256 limit10min, uint256 limit24h);
     event Withdrawal(address indexed user, uint256 amount, uint256 fee);
     event DetailedWithdrawal(address indexed user, uint256 amount, uint256 fee, address indexed executor);
-    // event SettlementAddressUpdated удалён: адрес больше не может изменяться после деплоя
     event FeeAddressUpdated(address newAddress);
     event CustomFeeSet(address indexed client, uint256 fee);
     event CustomFeeRemoved(address indexed client);
