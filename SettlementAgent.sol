@@ -55,7 +55,7 @@ contract SettlementAgent is Initializable, AccessControlUpgradeable, UUPSUpgrade
     event TimeLimitsSet(address indexed user, uint256 limit10min, uint256 limit24h);
     event Withdrawal(address indexed user, uint256 amount, uint256 fee);
     event DetailedWithdrawal(address indexed user, uint256 amount, uint256 fee, address indexed executor);
-    event SettlementAddressUpdated(address newAddress);
+    // event SettlementAddressUpdated удалён: адрес больше не может изменяться после деплоя
     event FeeAddressUpdated(address newAddress);
     event CustomFeeSet(address indexed client, uint256 fee);
     event CustomFeeRemoved(address indexed client);
@@ -205,11 +205,7 @@ contract SettlementAgent is Initializable, AccessControlUpgradeable, UUPSUpgrade
     /**
      * @notice Обновляет settlement-адрес для переводов (только ADMIN).
      */
-    function updateSettlementAddress(address newAddress) external onlyRole(ADMIN_ROLE) {
-        require(newAddress != address(0), "Zero address");
-        _settlementAddress = newAddress;
-        emit SettlementAddressUpdated(newAddress);
-    }
+    // updateSettlementAddress удалена: теперь смена settlement-адреса возможна только при деплое новой версии контракта
 
     /**
      * @notice Обновляет fee-адрес для перевода комиссии (только ADMIN).
